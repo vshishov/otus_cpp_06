@@ -99,18 +99,18 @@ TEST(Matrix_2D, Exercise) {
   ASSERT_EQ(matrix.size(), (size_t)18);
 
   for (int i = 0; i < nCount; ++i) {
-    ASSERT_TRUE(matrix[i][i] == i) << '[' << i << "][" << i << "] == " << i;
+    ASSERT_EQ((int)matrix[i][i], i) << '[' << i << "][" << i << "] == " << i;
   }
 
   for (int i = 0; i < nCount; ++i) {
-    ASSERT_TRUE(matrix[nCount - 1 - i][i] == nCount - 1 - i) << '[' << nCount - 1 - i << "][" << i << "] == " << nCount - 1 - i;
+    ASSERT_EQ((int)matrix[nCount - 1 - i][i], nCount - 1 - i) << '[' << nCount - 1 - i << "][" << i << "] == " << nCount - 1 - i;
   }
 
   int nCountForTest = 500;
   for (int i = 0; i < nCountForTest; ++i) {
     for (int j = 0; j < nCountForTest; ++j) {
       if (i >= nCount || j >= nCount) {
-        ASSERT_TRUE(matrix[i][j] == nDefault) << '[' << i << "][" << j << "] == " << nDefault;
+        ASSERT_EQ((int)matrix[i][j], nDefault) << '[' << i << "][" << j << "] == " << nDefault;
       }
     }
   }
@@ -121,7 +121,7 @@ TEST(Matrix_4D, Create) {
   ASSERT_EQ(matrix.size(), (size_t)0);
 
   auto a = matrix[0][0][0][0];
-  ASSERT_TRUE(a == -1);
+  ASSERT_EQ((int)a, -1);
   ASSERT_EQ(matrix.size(), (size_t)0);
 
   matrix[99][100][101][102] = 100500;
